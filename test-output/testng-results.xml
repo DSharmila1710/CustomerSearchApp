@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="4338" started-at="2020-08-23T16:57:05Z" finished-at="2020-08-23T16:57:09Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="4338" started-at="2020-08-23T16:57:05Z" finished-at="2020-08-23T16:57:09Z">
+      <class name="com.rupeek.CustomerServiceApp.GetParticularUserDetail">
+        <test-method status="PASS" signature="getUserDetail(java.lang.String)[pri:0, instance:com.rupeek.CustomerServiceApp.GetParticularUserDetail@4678c730]" name="getUserDetail" duration-ms="3787" started-at="2020-08-23T22:27:05Z" data-provider="inputPhoneNum" finished-at="2020-08-23T22:27:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[9995879555]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUserDetail -->
+      </class> <!-- com.rupeek.CustomerServiceApp.GetParticularUserDetail -->
+      <class name="com.rupeek.CustomerServiceApp.GetUsersAPI">
+        <test-method status="PASS" signature="getUsersList()[pri:0, instance:com.rupeek.CustomerServiceApp.GetUsersAPI@c038203]" name="getUsersList" duration-ms="504" started-at="2020-08-23T22:27:08Z" finished-at="2020-08-23T22:27:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUsersList -->
+      </class> <!-- com.rupeek.CustomerServiceApp.GetUsersAPI -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
