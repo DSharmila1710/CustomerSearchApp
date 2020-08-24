@@ -4,6 +4,7 @@ import static io.restassured.RestAssured.given;
 
 import java.io.IOException;
 
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.rupeek.resources.Utils;
@@ -19,7 +20,6 @@ public class GetUsersAPI extends Utils{
 		RestAssured.baseURI = getGlobalValue("baseURI");
 		String response = given()
 				.auth().oauth2(AuthenticateAPI.getToken())
-				//.log().all()
 				.get(getGlobalValue("list_resources"))
 				.then()
 				.assertThat().statusCode(200)
@@ -29,18 +29,15 @@ public class GetUsersAPI extends Utils{
 		JsonPath js = new JsonPath(response);
 		js.prettyPeek();
 		
-		//ArrayList<String> userList =  new ArrayList<String>();
-
 	}
 	
-	@Test(priority=2)
-	public static void getUsersListWithIncorrectToken() throws IOException {
+	@Test(priority=2,dataProvider="invalidInput")
+	public static void getUsersListWithInvalidInput(String uri, String token) throws IOException {
 
-		RestAssured.baseURI = getGlobalValue("baseURI");
+		RestAssured.baseURI = uri;
 
 				given()
-				.auth().oauth2(AuthenticateAPI.getToken()+"a")
-				//.log().all()
+				.auth().oauth2(token)
 				.get(getGlobalValue("list_resources"))
 				.then()
 				.assertThat().statusCode(401)
@@ -48,21 +45,14 @@ public class GetUsersAPI extends Utils{
 
 	}
 	
-	
 
-	@Test(priority=3)
-	public static void getUsersListWithInvalidURI() throws IOException {
-
-		RestAssured.baseURI = getGlobalValue("baseURI")+"a";
-
-				given()
-				.auth().oauth2(AuthenticateAPI.getToken())
-				//.log().all()
-				.get(getGlobalValue("list_resources"))
-				.then()
-				.assertThat().statusCode(404)
-				.extract().response();
-
+	@DataProvider
+	public Object[][] invalidInput() throws IOException{
+		
+		return new Object[][] {			
+			{getGlobalValue("baseURI"), AuthenticateAPI.getToken()+"invalid"}
+			
+		};
 	}
 	
 }

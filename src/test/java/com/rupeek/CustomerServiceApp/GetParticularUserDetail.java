@@ -3,8 +3,6 @@ package com.rupeek.CustomerServiceApp;
 import static io.restassured.RestAssured.given;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -30,13 +28,11 @@ public class GetParticularUserDetail extends Utils{
 				.asString();
 		
 		JsonPath js = new JsonPath(response);
-		js.prettyPeek();
-		
-		//ArrayList<String> userList =  new ArrayList<String>();
+		js.prettyPeek();	
 
 	}
 	
-	@Test(dataProvider="inputPhoneNum",priority=2)
+	@Test(dataProvider="invalidInput",priority=2)
 	public static void getUserDetailWithIncorrectToken(String phoneNumber) throws IOException {
 
 		RestAssured.baseURI = getGlobalValue("baseURI");
@@ -52,7 +48,7 @@ public class GetParticularUserDetail extends Utils{
 	
 
 	
-	@Test(dataProvider="inputPhoneNum",priority=3)
+	@Test(dataProvider="invalidInput",priority=3)
 	public static void getUserDetailWithInvalidURI(String phoneNumber) throws IOException {
 
 		RestAssured.baseURI = getGlobalValue("baseURI")+"a";
@@ -66,12 +62,45 @@ public class GetParticularUserDetail extends Utils{
 
 	}
 	
-	@DataProvider
-	public Iterator<Object[]> inputPhoneNum(){
-		ArrayList<Object[]> list = new ArrayList<Object[]>();
-		list.add(new Object[] {"9995879555"});
-		return list.iterator();
+	@Test(dataProvider="invalidInput",priority=4)
+	public static void getUserDetailWithIncorrectPhoneNumber(String phoneNumber) throws IOException {
+
+		RestAssured.baseURI = getGlobalValue("baseURI");
+
+				given()
+				.auth().oauth2(AuthenticateAPI.getToken())
+				//.log().all()
+				.get(getGlobalValue("list_resources")+phoneNumber)
+				.then()
+				.assertThat().statusCode(200)
+				.extract().response()
+				.asString();
+		
+		
+
 	}
 	
+
+	@DataProvider
+	public Object[][] inputPhoneNum() throws IOException{
+		
+		return new Object[][] {			
+			{"8037602400"},
+			{"9972939567"},
+			{"9995879555"}
+			
+		};
+	}
 	
+	@DataProvider
+	public Object[][] invalidInput() throws IOException{
+		
+		return new Object[][] {			
+			{"8037602410"}
+			
+		};
+	}
+	
+
+
 }

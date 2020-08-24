@@ -62,11 +62,11 @@ public class AuthenticateAPI extends Utils{
 	public Object[][] invalidInput() throws IOException{
 		
 		return new Object[][] {
-			{getGlobalValue("baseURI")+"invalid_url",getGlobalValue("username"),getGlobalValue("password")},
-			{getGlobalValue("baseURI"),"Invalid_username",getGlobalValue("password")},
-			{getGlobalValue("baseURI"),getGlobalValue("username"),"Invalid_password"},
-			{getGlobalValue("baseURI"),"",getGlobalValue("password")},
-			{getGlobalValue("baseURI"),getGlobalValue("username"),""}
+			{getGlobalValue("baseURI")+"invalid_url",getGlobalValue("username")	,getGlobalValue("password")	},
+			{getGlobalValue("baseURI")				,"Invalid_username"			,getGlobalValue("password")	},
+			{getGlobalValue("baseURI")				,getGlobalValue("username")	,"Invalid_password"			},
+			{getGlobalValue("baseURI")				,""							,getGlobalValue("password")	},
+			{getGlobalValue("baseURI")				,getGlobalValue("username")	,""							}
 			
 		};
 	}

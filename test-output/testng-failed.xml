@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.rupeek.CustomerServiceApp.AuthenticateAPI">
+      <class name="com.rupeek.CustomerServiceApp.GetParticularUserDetail">
         <methods>
-          <include name="validateAPIWithInvalidInput" invocation-numbers="0"/>
+          <include name="getUserDetailWithIncorrectPhoneNumber" invocation-numbers="0"/>
         </methods>
-      </class> <!-- com.rupeek.CustomerServiceApp.AuthenticateAPI -->
+      </class> <!-- com.rupeek.CustomerServiceApp.GetParticularUserDetail -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
