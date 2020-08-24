@@ -1,30 +1,122 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+<testng-results skipped="0" failed="0" ignored="0" total="6" passed="6">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="4338" started-at="2020-08-23T16:57:05Z" finished-at="2020-08-23T16:57:09Z">
+  <suite name="Default suite" duration-ms="4568" started-at="2020-08-24T05:21:07Z" finished-at="2020-08-24T05:21:12Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="4338" started-at="2020-08-23T16:57:05Z" finished-at="2020-08-23T16:57:09Z">
-      <class name="com.rupeek.CustomerServiceApp.GetParticularUserDetail">
-        <test-method status="PASS" signature="getUserDetail(java.lang.String)[pri:0, instance:com.rupeek.CustomerServiceApp.GetParticularUserDetail@4678c730]" name="getUserDetail" duration-ms="3787" started-at="2020-08-23T22:27:05Z" data-provider="inputPhoneNum" finished-at="2020-08-23T22:27:08Z">
+    <test name="Default test" duration-ms="4568" started-at="2020-08-24T05:21:07Z" finished-at="2020-08-24T05:21:12Z">
+      <class name="com.rupeek.CustomerServiceApp.AuthenticateAPI">
+        <test-method status="PASS" signature="printToken()[pri:1, instance:com.rupeek.CustomerServiceApp.AuthenticateAPI@724af044]" name="printToken" duration-ms="3265" started-at="2020-08-24T10:51:07Z" finished-at="2020-08-24T10:51:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printToken -->
+        <test-method status="PASS" signature="validateAPIWithInvalidInput(java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.rupeek.CustomerServiceApp.AuthenticateAPI@724af044]" name="validateAPIWithInvalidInput" duration-ms="184" started-at="2020-08-24T10:51:10Z" data-provider="invalidInput" finished-at="2020-08-24T10:51:10Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[9995879555]]>
+                <![CDATA[http://13.126.80.194:8080/invalid_url]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[rupeek]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[password]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getUserDetail -->
-      </class> <!-- com.rupeek.CustomerServiceApp.GetParticularUserDetail -->
-      <class name="com.rupeek.CustomerServiceApp.GetUsersAPI">
-        <test-method status="PASS" signature="getUsersList()[pri:0, instance:com.rupeek.CustomerServiceApp.GetUsersAPI@c038203]" name="getUsersList" duration-ms="504" started-at="2020-08-23T22:27:08Z" finished-at="2020-08-23T22:27:09Z">
+        </test-method> <!-- validateAPIWithInvalidInput -->
+        <test-method status="PASS" signature="validateAPIWithInvalidInput(java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.rupeek.CustomerServiceApp.AuthenticateAPI@724af044]" name="validateAPIWithInvalidInput" duration-ms="263" started-at="2020-08-24T10:51:10Z" data-provider="invalidInput" finished-at="2020-08-24T10:51:11Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[http://13.126.80.194:8080/]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Invalid_username]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[password]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- getUsersList -->
-      </class> <!-- com.rupeek.CustomerServiceApp.GetUsersAPI -->
+        </test-method> <!-- validateAPIWithInvalidInput -->
+        <test-method status="PASS" signature="validateAPIWithInvalidInput(java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.rupeek.CustomerServiceApp.AuthenticateAPI@724af044]" name="validateAPIWithInvalidInput" duration-ms="293" started-at="2020-08-24T10:51:11Z" data-provider="invalidInput" finished-at="2020-08-24T10:51:11Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[http://13.126.80.194:8080/]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[rupeek]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Invalid_password]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateAPIWithInvalidInput -->
+        <test-method status="PASS" signature="validateAPIWithInvalidInput(java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.rupeek.CustomerServiceApp.AuthenticateAPI@724af044]" name="validateAPIWithInvalidInput" duration-ms="243" started-at="2020-08-24T10:51:11Z" data-provider="invalidInput" finished-at="2020-08-24T10:51:11Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[http://13.126.80.194:8080/]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[password]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateAPIWithInvalidInput -->
+        <test-method status="PASS" signature="validateAPIWithInvalidInput(java.lang.String, java.lang.String, java.lang.String)[pri:2, instance:com.rupeek.CustomerServiceApp.AuthenticateAPI@724af044]" name="validateAPIWithInvalidInput" duration-ms="281" started-at="2020-08-24T10:51:11Z" data-provider="invalidInput" finished-at="2020-08-24T10:51:12Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[http://13.126.80.194:8080/]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[rupeek]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateAPIWithInvalidInput -->
+      </class> <!-- com.rupeek.CustomerServiceApp.AuthenticateAPI -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

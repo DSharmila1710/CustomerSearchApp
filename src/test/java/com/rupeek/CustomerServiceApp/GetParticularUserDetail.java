@@ -16,7 +16,7 @@ import io.restassured.path.json.JsonPath;
 
 public class GetParticularUserDetail extends Utils{
 
-	@Test(dataProvider="inputPhoneNum")
+	@Test(dataProvider="inputPhoneNum",priority=1)
 	public static void getUserDetail(String phoneNumber) throws IOException {
 
 		RestAssured.baseURI = getGlobalValue("baseURI");
@@ -25,7 +25,7 @@ public class GetParticularUserDetail extends Utils{
 				//.log().all()
 				.get(getGlobalValue("list_resources")+phoneNumber)
 				.then()
-				//.assertThat().statusCode(200)
+				.assertThat().statusCode(200)
 				.extract().response()
 				.asString();
 		
@@ -33,6 +33,36 @@ public class GetParticularUserDetail extends Utils{
 		js.prettyPeek();
 		
 		//ArrayList<String> userList =  new ArrayList<String>();
+
+	}
+	
+	@Test(dataProvider="inputPhoneNum",priority=2)
+	public static void getUserDetailWithIncorrectToken(String phoneNumber) throws IOException {
+
+		RestAssured.baseURI = getGlobalValue("baseURI");
+		
+				given()
+				.auth().oauth2(AuthenticateAPI.getToken()+"a")
+				.get(getGlobalValue("list_resources")+phoneNumber)
+				.then()
+				.assertThat().statusCode(401)
+				.extract().response();
+
+	}
+	
+
+	
+	@Test(dataProvider="inputPhoneNum",priority=3)
+	public static void getUserDetailWithInvalidURI(String phoneNumber) throws IOException {
+
+		RestAssured.baseURI = getGlobalValue("baseURI")+"a";
+		
+				given()
+				.auth().oauth2(AuthenticateAPI.getToken())
+				.get(getGlobalValue("list_resources")+phoneNumber)
+				.then()
+				.assertThat().statusCode(404)
+				.extract().response();
 
 	}
 	
