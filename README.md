@@ -15,3 +15,6 @@ APIs involved :
 1. AuthenticateAPI is the test case that is run to fetch the Oauth2.0 token
 2. GetUsersAPI is the test case which displays the list of all the user details present in the app
 3. GetParticularUserDetail is the test case which searches a particualr user with his phone number
+
+TestCases : 
+Are updated in the folder test-cases
