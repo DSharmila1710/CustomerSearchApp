@@ -3,7 +3,7 @@
 Project : API Automation
 Framework : TestNG
 Support : RestAssured Java Libraries
-Authentication : bearer token
+Authentication : JWT Bearer token
 
 Project Overview : 
 Customers search application enables the operations team of an organization to search for existing
